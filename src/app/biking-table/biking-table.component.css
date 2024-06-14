@@ -1,0 +1,78 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+mat-form-field, input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+th, td {
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.short-column {
+  max-width: 80px; /* Anpassung der maximalen Breite für Kilometer und Höhenmeter */
+}
+
+.time-column {
+  max-width: 80px; /* Anpassung der maximalen Breite für Uhrzeit Start und Bis */
+}
+
+.small-column {
+  max-width: 60px; /* Anpassung der maximalen Breite für Art */
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip text above the tooltip */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip text visible */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .table-container {
+    padding: 0 8px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

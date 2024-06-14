@@ -1,0 +1,96 @@
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+    <!-- Tag Column -->
+    <ng-container matColumnDef="tag">
+      <th mat-header-cell *matHeaderCellDef> Tag </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="picker" [(ngModel)]="element.tag">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <!-- Uhrzeit Start Column -->
+    <ng-container matColumnDef="uhrzeitStart">
+      <th mat-header-cell *matHeaderCellDef class="time-column"> Uhrzeit Start </th>
+      <td mat-cell *matCellDef="let element" class="time-column">
+        <input matInput [(ngModel)]="element.uhrzeitStart" type="time">
+      </td>
+    </ng-container>
+
+    <!-- Uhrzeit Bis Column -->
+    <ng-container matColumnDef="uhrzeitBis">
+      <th mat-header-cell *matHeaderCellDef class="time-column"> Uhrzeit Bis </th>
+      <td mat-cell *matCellDef="let element" class="time-column">
+        <input matInput [(ngModel)]="element.uhrzeitBis" type="time">
+      </td>
+    </ng-container>
+
+    <!-- Titel Column -->
+    <ng-container matColumnDef="titel">
+      <th mat-header-cell *matHeaderCellDef> Titel </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="element.titel">
+      </td>
+    </ng-container>
+
+    <!-- Kilometer Column -->
+    <ng-container matColumnDef="kilometer">
+      <th mat-header-cell *matHeaderCellDef class="short-column"> Kilometer </th>
+      <td mat-cell *matCellDef="let element" class="short-column">
+        <input matInput [(ngModel)]="element.kilometer" type="number">
+      </td>
+    </ng-container>
+
+    <!-- Höhenmeter Column -->
+    <ng-container matColumnDef="hoehenmeter">
+      <th mat-header-cell *matHeaderCellDef class="short-column"> Höhenmeter </th>
+      <td mat-cell *matCellDef="let element" class="short-column">
+        <input matInput [(ngModel)]="element.hoehenmeter" type="number">
+      </td>
+    </ng-container>
+
+    <!-- Art Column -->
+    <ng-container matColumnDef="art">
+      <th mat-header-cell *matHeaderCellDef class="small-column"> Art </th>
+      <td mat-cell *matCellDef="let element" class="small-column">
+        <input matInput [(ngModel)]="element.art">
+      </td>
+    </ng-container>
+
+    <!-- Bergankunft Column -->
+    <ng-container matColumnDef="bergankunft">
+      <th mat-header-cell *matHeaderCellDef class="tooltip"> BA
+        <span class="tooltiptext">Bergankunft</span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox [(ngModel)]="element.bergankunft"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Beschreibung Column -->
+    <ng-container matColumnDef="beschreibung">
+      <th mat-header-cell *matHeaderCellDef> Beschreibung </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="element.beschreibung">
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Aktionen </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button mat-icon-button color="warn" (click)="deleteRow(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <button mat-raised-button color="primary" (click)="addRow()">Zeile hinzufügen</button>
+</div>
