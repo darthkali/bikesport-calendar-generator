@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { BikingTableComponent } from './biking-table/biking-table.component';
 
 @Component({
   selector: 'app-root',
+  template: '<app-biking-table></app-biking-table>',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [BikingTableComponent]
 })
-export class AppComponent {
-  title = 'bikesport-calendar-generator';
-}
+export class AppComponent {}
+
+
